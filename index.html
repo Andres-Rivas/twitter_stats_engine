@@ -1,12 +1,47 @@
 <!-- Main dashboard for viewing data, account details to be hardcoded -->
 
 <head>
-  <!-- Include Semantic UI minimum stuff -->
+  <!-- Include Semantic UI minimum stuff & firebase auth stuff-->
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCRyoZqoTHxBJ3nRtBY_TsDUmoLpt8ECNg",
+    authDomain: "twitterchecker-d12e6.firebaseapp.com",
+    databaseURL: "https://twitterchecker-d12e6.firebaseio.com",
+    projectId: "twitterchecker-d12e6",
+    storageBucket: "twitterchecker-d12e6.appspot.com",
+    messagingSenderId: "563224578893"
+  };
+  firebase.initializeApp(config);
+</script>
+
 <body>
-  
+  <div class="ui placeholder segment">
+  <div class="ui two column very relaxed stackable grid">
+    <div class="column">
+      <div class="ui form">
+        <div class="field">
+          <label>Username</label>
+          <div class="ui left icon input">
+            <input type="text" placeholder="Username">
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="ui left icon input">
+            <input type="password">
+            <i class="lock icon"></i>
+          </div>
+        </div>
+        <div class="ui blue submit button">Login</div>
+      </div>
+    </div>
 </body>
