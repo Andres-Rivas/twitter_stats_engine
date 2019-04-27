@@ -6,6 +6,7 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script src="SessionWizard.js"></script>
 </head>
 
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
@@ -21,6 +22,7 @@
   };
   firebase.initializeApp(config);
 </script>
+
 
 <body>
   <div class="ui placeholder segment">
@@ -45,3 +47,26 @@
       </div>
     </div>
 </body>
+
+<!-- LOGIN PROCTOR -->
+<script>
+  //Keep proctoring login state
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    alert("Signed");
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    window.location = "/dashboard.html";
+    // ...
+  } else {
+    // User is signed out.
+    // ...
+  }
+});
+</script>
