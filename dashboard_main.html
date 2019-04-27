@@ -1,3 +1,5 @@
+<meta charset="UTF-8">
+
 <!-- Main dashboard for viewing data, account details to be hardcoded -->
 
 <head>
@@ -5,7 +7,22 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script src="SessionWizard.js"></script>
 </head>
+
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCRyoZqoTHxBJ3nRtBY_TsDUmoLpt8ECNg",
+    authDomain: "twitterchecker-d12e6.firebaseapp.com",
+    databaseURL: "https://twitterchecker-d12e6.firebaseio.com",
+    projectId: "twitterchecker-d12e6",
+    storageBucket: "twitterchecker-d12e6.appspot.com",
+    messagingSenderId: "563224578893"
+  };
+  firebase.initializeApp(config);
+</script>
 
 <body>
   <div class="ui secondary pointing menu">
@@ -19,7 +36,7 @@
       Comparativos
     </a>
     <div class="right menu">
-      <a class="ui item">
+      <a class="ui item" onclick="doLogout()">
         Salir
       </a>
     </div>
@@ -28,3 +45,14 @@
     <p></p>
   </div>
 </body>
+
+<!-- LOGIN PROCTOR -->
+<script>
+  //Keep proctoring login state
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (!user) {
+    alert("No has iniciado sesión");
+    window.location = "/index.html";
+  }
+});
+</script>

@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 
-<!-- Main dashboard for viewing data, account details to be hardcoded -->
+<!-- Login - GATEKEEPER -->
 
 <head>
   <!-- Include Semantic UI minimum stuff & firebase auth stuff-->
@@ -45,7 +45,7 @@
       <form class="ui large form">
         <div class="ui stacked segment">
           <div class="field">
-            <div class="ui left icon input">
+            <div class="ui icon input">
               <i class="user icon"></i>
               <input type="text" id="usrMail" name="email" placeholder="E-mail address">
             </div>
@@ -79,10 +79,7 @@
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
     var providerData = user.providerData;
-    window.location = "/dashboard.html";
-    // ...
-  } else {
-    // User is signed out.
+    window.location = "/dashboard_main.html";
     // ...
   }
 });
