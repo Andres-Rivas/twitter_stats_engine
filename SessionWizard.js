@@ -24,6 +24,5 @@ function doLogout(){
 function loginActuator(){
   var usrMail = document.getElementById("usrMail");
   var usrPass = document.getElementById("usrPass");
-
   doLogin();
 }
