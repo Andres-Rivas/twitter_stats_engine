@@ -42,8 +42,14 @@
     </div>
   </div>
   <div class="ui segment">
+    <div class="column">
+        <button class="ui button" onclick="createFrame()">
+          update
+        </button>
+    </div>
     <p></p>
   </div>
+  <iframe id='iFrame' src=''></iframe>
 </body>
 
 <!-- LOGIN PROCTOR -->
@@ -55,4 +61,9 @@
     window.location = "/index.html";
   }
 });
+</script>
+<script type="text/javascript">
+  function createFrame(){
+    document.getElementById('iFrame').src = 'https://twitter.com/El_Universal_Mx'
+}
 </script>
