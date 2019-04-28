@@ -64,9 +64,8 @@
 </script>
 <script type="text/javascript">
   function rawDataGen(){
-    var context = this;
-    var rawAnswer=8;
-    setTimeout(function(){rawAnswer = document.getElementsByClassName('timeline-TweetList')[0]}, 200);
+    var rawAnswer;
+    setTimeout(function(){rawAnswer = document.getElementsByClassName('twitter-widget-0')[0]}, 200);
     assembleJSON(rawAnswer);
 }
 setTimeout(function(){ document.getElementById('twitter-widget-0').style = "position: static; visibility: visible; display: inline-block; width: 0px; height: 0px; padding: 0px; border: none; max-width: 100%; min-width: 0px; margin-top: 0px; margin-bottom: 0px; min-height: 0px;"}, 600);
