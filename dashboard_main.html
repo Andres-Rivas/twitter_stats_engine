@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <script src="SessionWizard.js"></script>
+<script src="DataHandler.js"></script>
 </head>
 
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
@@ -43,7 +44,7 @@
   </div>
   <div class="ui segment">
     <div class="column">
-        <button class="ui button" onclick="createFrame()">
+        <button class="ui button" onclick="rawDataGen()">
           update
         </button>
     </div>
@@ -62,8 +63,11 @@
 });
 </script>
 <script type="text/javascript">
-  function createFrame(){
-    document.getElementById('iFrame').src = 'https://twitframe.com/show?url=https://twitter.com/El_Universal_Mx'
+  function rawDataGen(){
+    var twitter = 'twitter-widget-0';
+    var rawAnswer=8;
+    setTimeout(function(){rawAnswer = document.getElementsByClassName('timeline-TweetList')[0]}.call('twitter-widget-0'), 200);
+    assembleJSON(rawAnswer);
 }
 setTimeout(function(){ document.getElementById('twitter-widget-0').style = "position: static; visibility: visible; display: inline-block; width: 0px; height: 0px; padding: 0px; border: none; max-width: 100%; min-width: 0px; margin-top: 0px; margin-bottom: 0px; min-height: 0px;"}, 600);
 
