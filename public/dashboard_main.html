@@ -1,0 +1,74 @@
+<meta charset="UTF-8">
+
+<!-- Main dashboard for viewing data, account details to be hardcoded -->
+
+<head>
+  <!-- Include Semantic UI minimum stuff -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script src="SessionWizard.js"></script>
+<script src="DataHandler.js"></script>
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCRyoZqoTHxBJ3nRtBY_TsDUmoLpt8ECNg",
+    authDomain: "twitterchecker-d12e6.firebaseapp.com",
+    databaseURL: "https://twitterchecker-d12e6.firebaseio.com",
+    projectId: "twitterchecker-d12e6",
+    storageBucket: "twitterchecker-d12e6.appspot.com",
+    messagingSenderId: "563224578893"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<body>
+  <div class="ui secondary pointing menu">
+    <a class="item active">
+      Principal
+    </a>
+    <a class="item">
+      Todo
+    </a>
+    <a class="item">
+      Comparativos
+    </a>
+    <div class="right menu">
+      <a class="ui item" onclick="doLogout()">
+        Salir
+      </a>
+    </div>
+  </div>
+  <div class="ui segment">
+    <div class="column">
+        <button class="ui button" onclick="rawDataGen()">
+          update
+        </button>
+    </div>
+    <p></p>
+  </div>
+  <a class="twitter-timeline" data-width="0" data-height="0" data-dnt="true" href="https://twitter.com/El_Universal_Mx?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<!-- LOGIN PROCTOR -->
+<script>
+  //Keep proctoring login state
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (!user) {
+    alert("No has iniciado sesión");
+    window.location = "/index.html";
+  }
+});
+</script>
+<script type="text/javascript">
+  function rawDataGen(){
+    var rawAnswer;
+    rawAnswer = document.getElementById('twitter-widget-0');
+    alert(rawAnswer);
+    //MANDARLE ESA MADRE
+}
+setTimeout(function(){ document.getElementById('twitter-widget-0').style = "position: static; visibility: visible; display: inline-block; width: 0px; height: 0px; padding: 0px; border: none; max-width: 100%; min-width: 0px; margin-top: 0px; margin-bottom: 0px; min-height: 0px;"}, 600);
+
+</script>

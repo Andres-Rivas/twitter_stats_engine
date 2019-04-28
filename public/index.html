@@ -1,0 +1,86 @@
+<meta charset="UTF-8">
+
+<!-- Login - GATEKEEPER -->
+
+<head>
+  <!-- Include Semantic UI minimum stuff & firebase auth stuff-->
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script src="SessionWizard.js"></script>
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCRyoZqoTHxBJ3nRtBY_TsDUmoLpt8ECNg",
+    authDomain: "twitterchecker-d12e6.firebaseapp.com",
+    databaseURL: "https://twitterchecker-d12e6.firebaseio.com",
+    projectId: "twitterchecker-d12e6",
+    storageBucket: "twitterchecker-d12e6.appspot.com",
+    messagingSenderId: "563224578893"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+<body>
+  <h1> </h1>
+  <h1> </h1>
+  <h1> </h1>
+  <div class="column"/>
+  <div class="column"/>
+  <div class="column"/>
+  <div class="padding">
+  <div class="ui raised very padded container segment">
+  <div class="ui middle aligned center aligned grid">
+    <div class="column">
+      <h2 class="ui blue header">
+        <div class="content">
+          Login
+        </div>
+      </h2>
+      <form class="ui large form">
+        <div class="ui stacked segment">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" id="usrMail" name="email" placeholder="E-mail address">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="password" id="usrPass" name="password" placeholder="Password">
+            </div>
+          </div>
+          <div class="ui fluid large blue submit button"
+          onclick="loginActuator()">Iniciar Sesión</div>
+        </div>
+
+        <div class="ui error message"></div>
+
+      </form>
+</body>
+
+<!-- LOGIN PROCTOR -->
+<script>
+  //Keep proctoring login state
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    alert("Signed");
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    window.location = "/dashboard_main.html";
+    // ...
+  }
+});
+</script>
